@@ -5,16 +5,12 @@ import { MessageCircleIcon, LockIcon, MailIcon, UserIcon, LoaderIcon } from "luc
 import { Link } from "react-router";
 
 function SignUpPage() {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    Password: "",
-  });
-  const { Signup, isSigningUp } = useAuthStore();
+  const [formData, setFormData] = useState({ fullName: "", email: "", password: "" });
+  const { signup, isSigningUp } = useAuthStore();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Signup(formData);
+    signup(formData);
   };
 
   return (
@@ -25,7 +21,7 @@ function SignUpPage() {
             {/* FORM CLOUMN - LEFT SIDE */}
             <div className="md:w-1/2 p-8 flex items-center justify-center md:border-r border-slate-600/30">
               <div className="w-full max-w-md">
-                 {/* HEADING TEXT */}
+                {/* HEADING TEXT */}
                 <div className="text-center mb-8">
                   <MessageCircleIcon className="w-12 h-12 mx-auto text-slate-400 mb-4" />
                   <h2 className="text-2xl font-bold text-slate-200 mb-2">
@@ -38,54 +34,70 @@ function SignUpPage() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* FULL NAME */}
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">Full Name</label>
+                    <label className="block text-sm font-medium text-slate-300 mb-2">
+                      Full Name
+                    </label>
                     <div className="reltive">
                       <UserIcon className="auth-input-icon" />
 
                       <input
                         type="text"
                         value={formData.fullName}
-                        onChange={(e) => setFormData({ ...formData, fullName: e.tarfer.value})}
+                        onChange={(e) =>
+                          setFormData({ ...formData, fullName: e.target.value })
+                        }
                         className="input"
-                        placeholder="John Dow"
-                        />
+                        placeholder="Karmugilan"
+                      />
                     </div>
                   </div>
 
-                   {/* EMAIL */}
+                  {/* EMAIL */}
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">Email</label>
+                    <label className="block text-sm font-medium text-slate-300 mb-2">
+                      Email
+                    </label>
                     <div className="reltive">
                       <MailIcon className="auth-input-icon" />
 
                       <input
                         type="email"
                         value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.tarfer.value})}
+                        onChange={(e) =>
+                          setFormData({ ...formData, email: e.target.value })
+                        }
                         className="input"
-                        placeholder="Johndoe@gmail.com"
-                        />
+                        placeholder="karmugilan@gmail.com"
+                      />
                     </div>
                   </div>
 
-                   {/* PASSWORD */}
+                  {/* PASSWORD */}
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">Password</label>
+                    <label className="block text-sm font-medium text-slate-300 mb-2">
+                      Password
+                    </label>
                     <div className="reltive">
                       <LockIcon className="auth-input-icon" />
 
                       <input
                         type="password"
                         value={formData.Password}
-                        onChange={(e) => setFormData({ ...formData, email: e.tarfer.value})}
+                        onChange={(e) =>
+                          setFormData({ ...formData, password: e.target.value })
+                        }
                         className="input"
                         placeholder="Enter your password"
-                        />
+                      />
                     </div>
                   </div>
 
-                    {/* SUBMIT BUTTON */}
-                  <button className="auth-btn" type="submit" disabled={isSigningUp}>
+                  {/* SUBMIT BUTTON */}
+                  <button
+                    className="auth-btn"
+                    type="submit"
+                    disabled={isSigningUp}
+                  >
                     {isSigningUp ? (
                       <LoaderIcon className="w-full h-5 animate-spin text-center" />
                     ) : (
@@ -96,7 +108,7 @@ function SignUpPage() {
 
                 <div className="mt-6 text-center">
                   <Link to="/login" className="auth-link">
-                  Already hava an account? Login
+                    Already hava an account? Login
                   </Link>
                 </div>
               </div>
@@ -104,14 +116,16 @@ function SignUpPage() {
 
             {/* FORM ILLUSTRATION - RIGHT SIDE */}
             <div className="hidden md:w-1/2 md:flex items-center justify-center p-6 bg-gradient-to-bl from-slate-800/20 to-transparent">
-            <div>
+              <div>
                 <img
                   src="/signup.png"
                   alt="People using mobile devices"
                   className="w-full h-auto object-contain"
                 />
                 <div className="mt-6 text-center">
-                  <h3 className="text-xl font-medium text-cyan-400">Start Your Journey Today</h3>
+                  <h3 className="text-xl font-medium text-cyan-400">
+                    Start Your Journey Today
+                  </h3>
 
                   <div className="mt-4 flex justify-center gap-4">
                     <span className="auth-badge">Free</span>
