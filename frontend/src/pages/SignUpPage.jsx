@@ -24,9 +24,7 @@ function SignUpPage() {
                 {/* HEADING TEXT */}
                 <div className="text-center mb-8">
                   <MessageCircleIcon className="w-12 h-12 mx-auto text-slate-400 mb-4" />
-                  <h2 className="text-2xl font-bold text-slate-200 mb-2">
-                    Create Account
-                  </h2>
+                  <h2 className="text-2xl font-bold text-slate-200 mb-2">Create Account</h2>
                   <p className="text-slate-400">Sign up for a new account</p>
                 </div>
 
@@ -34,58 +32,46 @@ function SignUpPage() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* FULL NAME */}
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">
-                      Full Name
-                    </label>
-                    <div className="reltive">
+                    <label className="auth-input-label">Full Name</label>
+                    <div className="relative">
                       <UserIcon className="auth-input-icon" />
 
                       <input
                         type="text"
                         value={formData.fullName}
-                        onChange={(e) =>
-                          setFormData({ ...formData, fullName: e.target.value })
-                        }
+                        onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                         className="input"
                         placeholder="Karmugilan"
                       />
                     </div>
                   </div>
 
-                  {/* EMAIL */}
+                  {/* EMAIL INPUT */}
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">
-                      Email
-                    </label>
-                    <div className="reltive">
+                    <label className="auth-input-label">Email</label>
+                    <div className="relative">
                       <MailIcon className="auth-input-icon" />
 
                       <input
                         type="email"
                         value={formData.email}
-                        onChange={(e) =>
-                          setFormData({ ...formData, email: e.target.value })
-                        }
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="input"
                         placeholder="karmugilan@gmail.com"
                       />
                     </div>
                   </div>
 
-                  {/* PASSWORD */}
+                  {/* PASSWORD INPUT */}
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">
-                      Password
-                    </label>
-                    <div className="reltive">
+                    <label className="auth-input-label">Password</label>
+                    <div className="relative">
                       <LockIcon className="auth-input-icon" />
 
                       <input
                         type="password"
-                        value={formData.Password}
-                        onChange={(e) =>
-                          setFormData({ ...formData, password: e.target.value })
-                        }
+                        value={formData.password}
+                        onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                         className="input"
                         placeholder="Enter your password"
                       />
@@ -93,11 +79,7 @@ function SignUpPage() {
                   </div>
 
                   {/* SUBMIT BUTTON */}
-                  <button
-                    className="auth-btn"
-                    type="submit"
-                    disabled={isSigningUp}
-                  >
+                  <button className="auth-btn" type="submit" disabled={isSigningUp}>
                     {isSigningUp ? (
                       <LoaderIcon className="w-full h-5 animate-spin text-center" />
                     ) : (
@@ -108,7 +90,7 @@ function SignUpPage() {
 
                 <div className="mt-6 text-center">
                   <Link to="/login" className="auth-link">
-                    Already hava an account? Login
+                    Already have an account? Login
                   </Link>
                 </div>
               </div>
@@ -123,9 +105,7 @@ function SignUpPage() {
                   className="w-full h-auto object-contain"
                 />
                 <div className="mt-6 text-center">
-                  <h3 className="text-xl font-medium text-cyan-400">
-                    Start Your Journey Today
-                  </h3>
+                  <h3 className="text-xl font-medium text-cyan-400">Start Your Journey Today</h3>
 
                   <div className="mt-4 flex justify-center gap-4">
                     <span className="auth-badge">Free</span>
@@ -141,5 +121,4 @@ function SignUpPage() {
     </div>
   );
 }
-
 export default SignUpPage;

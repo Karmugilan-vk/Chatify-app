@@ -3,16 +3,6 @@
 @tailwind utilities;
 
 @property --border-angle {
-    inherits: false;
-    initial-value: 0deg;
-    syntax: "<angle>";
-}
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@property --border-angle {
   inherits: false;
   initial-value: 0deg;
   syntax: "<angle>";

@@ -3,8 +3,6 @@ import { axiosInstance } from "../lib/axios";
 import toast from "react-hot-toast";
 import { useAuthStore } from "./useAuthStore";
 
-const notificationSound = new Audio("/sounds/notification.mp3");
-
 export const useChatStore = create((set, get) => ({
   allContacts: [],
   chats: [],
@@ -34,7 +32,6 @@ export const useChatStore = create((set, get) => ({
       set({ isUsersLoading: false });
     }
   },
-
   getMyChatPartners: async () => {
     set({ isUsersLoading: true });
     try {
